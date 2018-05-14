@@ -16,6 +16,7 @@ namespace(:spec) do
   task(:portability) do
     travis_config_file = File.expand_path("../.travis.yml", __FILE__)
     begin
+      require 'yaml'
       travis_options ||= YAML::load_file(travis_config_file)
     rescue => ex
       msg = "Travis config file '%s' could not be found: %s"
